@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpit07k41nvwn"]
+
+[ext_resource type="Script" path="res://CameraMain.gd" id="1_tmahe"]
+[ext_resource type="Script" path="res://addons/2d_essentials/camera/shake_camera_component.gd" id="2_ahnpt"]
+
+[node name="CameraMain" type="Camera2D"]
+position = Vector2(640, 360)
+script = ExtResource("1_tmahe")
+
+[node name="GodotEssentialsShakeCameraComponent2D" type="Node2D" parent="."]
+script = ExtResource("2_ahnpt")

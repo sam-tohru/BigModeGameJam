@@ -1,10 +1,29 @@
-[gd_scene load_steps=5 format=3 uid="uid://q6apitgn1n8c"]
+[gd_scene load_steps=6 format=3 uid="uid://q6apitgn1n8c"]
 
 [ext_resource type="Script" path="res://SmallMode/PlayerSmall/player_small.gd" id="1_dwe60"]
-[ext_resource type="Texture2D" uid="uid://dijd7tcxb0a1s" path="res://SmallMode/PlayerSmall/circle-export.png" id="1_pkajt"]
 [ext_resource type="Script" path="res://addons/2d_essentials/movement/motion/godot_essentials_motion.gd" id="2_3amoy"]
+[ext_resource type="Texture2D" uid="uid://8iqgsv7vorxj" path="res://SmallMode/PlayerSmall/sprites/chibi_1.png" id="3_ud1e0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_y551n"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yr84x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ud1e0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ud1e0")
+}],
+"loop": true,
+"name": &"forward",
+"speed": 5.0
+}]
 
 [node name="PlayerSmall" type="CharacterBody2D"]
 collision_layer = 2
@@ -14,13 +33,23 @@ script = ExtResource("1_dwe60")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_y551n")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.890196, 0.811765, 0.705882, 1)
-scale = Vector2(1.25, 1.25)
-texture = ExtResource("1_pkajt")
-
 [node name="GodotEssentialsMotion" type="Node2D" parent="."]
 script = ExtResource("2_3amoy")
 MAX_SPEED = 350.0
 ACCELERATION = 900.0
 FRICTION = 900.0
+
+[node name="Label" type="Label" parent="."]
+offset_left = -8.0
+offset_top = -2.0
+offset_right = 41.0
+offset_bottom = 24.0
+scale = Vector2(0.33, 0.33)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "player"
+
+[node name="SpriteGirlSmall" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_yr84x")
+animation = &"forward"
+autoplay = "forward"
