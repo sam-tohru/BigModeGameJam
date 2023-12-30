@@ -1,13 +1,265 @@
-[gd_scene load_steps=4 format=3 uid="uid://daraaa0uowp2d"]
+[gd_scene load_steps=28 format=3 uid="uid://daraaa0uowp2d"]
 
 [ext_resource type="PackedScene" uid="uid://dy2bt83ufvtwp" path="res://resources/menus/pause_menu/main_menu.tscn" id="1_2sakw"]
+[ext_resource type="Script" path="res://main.gd" id="1_cc6o1"]
+[ext_resource type="Texture2D" uid="uid://jaxexeo5lod4" path="res://BigMode/background/bg2-1.png" id="2_0rc4q"]
 [ext_resource type="PackedScene" uid="uid://bpit07k41nvwn" path="res://camera_main.tscn" id="2_32g3j"]
-[ext_resource type="PackedScene" uid="uid://7ge8r8t354k6" path="res://SmallMode/SmallMain.tscn" id="3_43cxc"]
+[ext_resource type="PackedScene" uid="uid://7ge8r8t354k6" path="res://SmallMode/SmallMain.tscn" id="3_6tkkr"]
+[ext_resource type="Texture2D" uid="uid://cqc75vdne05pg" path="res://BigMode/background/bg2-4.png" id="3_pymw8"]
+[ext_resource type="Script" path="res://AnimationsMain.gd" id="5_kr83d"]
+[ext_resource type="Texture2D" uid="uid://bh3jmwwrnypfp" path="res://resources/screensize/SwitchPane.png" id="5_uqhjt"]
+[ext_resource type="Texture2D" uid="uid://ci7fqna3l2a1i" path="res://SmallMode/PlayerSmall/sprites/chibiFrontR.png" id="7_idmj2"]
+[ext_resource type="Shader" path="res://resources/shaders/blur_menu.gdshader" id="8_tqfjh"]
+[ext_resource type="Script" path="res://resources/animations/points_gained/animation_points_gained.gd" id="9_lmgco"]
+[ext_resource type="Script" path="res://GameOverScreen.gd" id="10_d850t"]
+[ext_resource type="AudioStream" uid="uid://bydj8vkt40q2w" path="res://resources/mode_music.wav" id="11_3cpbe"]
+[ext_resource type="Script" path="res://BGM.gd" id="11_rmslk"]
+[ext_resource type="AudioStream" uid="uid://cpmmhiyg7to6t" path="res://resources/SFX/switch_ani/inflate 11.wav" id="12_gc4jj"]
+[ext_resource type="AudioStream" uid="uid://bjk5xliot830h" path="res://resources/SFX/switch_ani/inflate 12.wav" id="13_sp5uu"]
+[ext_resource type="AudioStream" uid="uid://h6c2iygn0d6r" path="res://resources/SFX/switch_ani/balloon deflate 14.wav" id="14_gtddc"]
+[ext_resource type="AudioStream" uid="uid://6xmekjt54vj0" path="res://resources/SFX/switch_ani/balloon deflate 15.wav" id="15_5r7oc"]
+[ext_resource type="AudioStream" uid="uid://dk4a52nrvaqu1" path="res://resources/SFX/ba_dum_ching/ba dum ching 1.wav" id="16_6su1t"]
+[ext_resource type="AudioStream" uid="uid://coodst3fvxre5" path="res://resources/SFX/ba_dum_ching/ba dum ching 2.wav" id="16_8ftuq"]
+[ext_resource type="AudioStream" uid="uid://cq7jpjes76isn" path="res://resources/SFX/ba_dum_ching/ba dum ching 3.wav" id="17_siw00"]
+[ext_resource type="AudioStream" uid="uid://082js3w82s55" path="res://resources/SFX/ba_dum_ching/ba dum ching 4.wav" id="18_te177"]
+[ext_resource type="Script" path="res://resources/SFX/bonks/big_bonks.gd" id="20_2lhir"]
+[ext_resource type="AudioStream" uid="uid://bwbuqrpaquujf" path="res://resources/SFX/bonks/bongo falling 9.wav" id="20_bcsre"]
+[ext_resource type="AudioStream" uid="uid://dlhxpt2jhrf65" path="res://resources/SFX/bonks/bongo falling 5.wav" id="21_hbeyu"]
+[ext_resource type="AudioStream" uid="uid://2353t81rku8i" path="res://resources/SFX/bonks/bongo falling 3.wav" id="22_vwkuo"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q5yrv"]
+shader = ExtResource("8_tqfjh")
+shader_parameter/blur = 2.0
+shader_parameter/brightness = 0.395
 
 [node name="main" type="Node2D"]
+script = ExtResource("1_cc6o1")
+
+[node name="OuterRect" type="ColorRect" parent="."]
+visible = false
+z_index = -4
+offset_left = -1272.0
+offset_top = -874.0
+offset_right = 2552.0
+offset_bottom = 1594.0
+mouse_filter = 2
+color = Color(0.168627, 0.156863, 0.129412, 1)
+
+[node name="Bg2-1" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(713, 508)
+texture = ExtResource("2_0rc4q")
+
+[node name="Bg2-4" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(711, 527)
+texture = ExtResource("3_pymw8")
 
 [node name="CameraMain" parent="." instance=ExtResource("2_32g3j")]
 
-[node name="SmallMain" parent="." instance=ExtResource("3_43cxc")]
+[node name="SmallMain" parent="." instance=ExtResource("3_6tkkr")]
 
 [node name="MainMenu" parent="." instance=ExtResource("1_2sakw")]
+
+[node name="AnimationsMain" type="Node2D" parent="."]
+z_index = 2
+script = ExtResource("5_kr83d")
+
+[node name="ModeGotoBig" type="Node2D" parent="AnimationsMain"]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="AnimationsMain/ModeGotoBig"]
+material = SubResource("ShaderMaterial_q5yrv")
+offset_left = -29.0
+offset_top = -20.0
+offset_right = 1309.0
+offset_bottom = 742.0
+mouse_filter = 2
+
+[node name="SwitchPane" type="Sprite2D" parent="AnimationsMain/ModeGotoBig"]
+modulate = Color(0.890196, 0.811765, 0.705882, 1)
+position = Vector2(462, 360)
+texture = ExtResource("5_uqhjt")
+
+[node name="GirlSmall" type="Sprite2D" parent="AnimationsMain/ModeGotoBig"]
+modulate = Color(0.890196, 0.811765, 0.705882, 1)
+position = Vector2(665, 481)
+texture = ExtResource("7_idmj2")
+offset = Vector2(-29, -68)
+
+[node name="SwitchLabel" type="RichTextLabel" parent="AnimationsMain/ModeGotoBig"]
+offset_left = 143.0
+offset_top = 258.0
+offset_right = 640.0
+offset_bottom = 412.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0.890196, 0.811765, 0.705882, 1)
+theme_override_colors/font_outline_color = Color(0.168627, 0.156863, 0.129412, 1)
+theme_override_constants/outline_size = 28
+theme_override_font_sizes/normal_font_size = 48
+bbcode_enabled = true
+text = "[shake rate=20.0 level=5 connected=1] 
+ Big Mode Time"
+
+[node name="ColorRect" type="ColorRect" parent="AnimationsMain/ModeGotoBig/SwitchLabel"]
+visible = false
+modulate = Color(0.168627, 0.156863, 0.129412, 1)
+show_behind_parent = true
+layout_mode = 0
+offset_right = 361.0
+offset_bottom = 75.0
+mouse_filter = 2
+
+[node name="ModeGotoSmall" type="Node2D" parent="AnimationsMain"]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="AnimationsMain/ModeGotoSmall"]
+material = SubResource("ShaderMaterial_q5yrv")
+offset_left = -29.0
+offset_top = -20.0
+offset_right = 1309.0
+offset_bottom = 742.0
+mouse_filter = 2
+
+[node name="SwitchPane" type="Sprite2D" parent="AnimationsMain/ModeGotoSmall"]
+modulate = Color(0.890196, 0.811765, 0.705882, 1)
+position = Vector2(640, 360)
+texture = ExtResource("5_uqhjt")
+
+[node name="GirlSmall" type="Sprite2D" parent="AnimationsMain/ModeGotoSmall"]
+modulate = Color(0.890196, 0.811765, 0.705882, 1)
+position = Vector2(932, 490)
+scale = Vector2(3.6, 3.6)
+texture = ExtResource("7_idmj2")
+offset = Vector2(-10.5556, -62.5)
+
+[node name="SwitchLabel" type="RichTextLabel" parent="AnimationsMain/ModeGotoSmall"]
+offset_left = 143.0
+offset_top = 259.0
+offset_right = 670.0
+offset_bottom = 424.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0.890196, 0.811765, 0.705882, 1)
+theme_override_colors/font_outline_color = Color(0.168627, 0.156863, 0.129412, 1)
+theme_override_constants/outline_size = 28
+theme_override_font_sizes/normal_font_size = 48
+bbcode_enabled = true
+text = "[shake rate=20.0 level=5 connected=1]
+ Small Mode Time"
+
+[node name="ColorRect" type="ColorRect" parent="AnimationsMain/ModeGotoSmall/SwitchLabel"]
+visible = false
+modulate = Color(0.168627, 0.156863, 0.129412, 1)
+show_behind_parent = true
+layout_mode = 0
+offset_right = 438.0
+offset_bottom = 75.0
+mouse_filter = 2
+
+[node name="animation_points_gained" type="Node2D" parent="AnimationsMain"]
+script = ExtResource("9_lmgco")
+
+[node name="sfx" type="Node2D" parent="AnimationsMain"]
+
+[node name="inflate1" type="AudioStreamPlayer" parent="AnimationsMain/sfx"]
+stream = ExtResource("12_gc4jj")
+volume_db = -20.0
+
+[node name="inflate2" type="AudioStreamPlayer" parent="AnimationsMain/sfx"]
+stream = ExtResource("13_sp5uu")
+volume_db = -20.0
+
+[node name="deflate1" type="AudioStreamPlayer" parent="AnimationsMain/sfx"]
+stream = ExtResource("14_gtddc")
+volume_db = -20.0
+
+[node name="deflate2" type="AudioStreamPlayer" parent="AnimationsMain/sfx"]
+stream = ExtResource("15_5r7oc")
+volume_db = -20.0
+
+[node name="ba_dum_ding" type="Node2D" parent="AnimationsMain/sfx"]
+
+[node name="ba1" type="AudioStreamPlayer" parent="AnimationsMain/sfx/ba_dum_ding"]
+stream = ExtResource("16_6su1t")
+
+[node name="ba2" type="AudioStreamPlayer" parent="AnimationsMain/sfx/ba_dum_ding"]
+stream = ExtResource("16_8ftuq")
+
+[node name="ba3" type="AudioStreamPlayer" parent="AnimationsMain/sfx/ba_dum_ding"]
+stream = ExtResource("17_siw00")
+
+[node name="ba4" type="AudioStreamPlayer" parent="AnimationsMain/sfx/ba_dum_ding"]
+stream = ExtResource("18_te177")
+
+[node name="big_bonks" type="Node2D" parent="AnimationsMain/sfx"]
+script = ExtResource("20_2lhir")
+
+[node name="bonk1" type="AudioStreamPlayer" parent="AnimationsMain/sfx/big_bonks"]
+stream = ExtResource("20_bcsre")
+
+[node name="bonk2" type="AudioStreamPlayer" parent="AnimationsMain/sfx/big_bonks"]
+stream = ExtResource("21_hbeyu")
+
+[node name="bonk3" type="AudioStreamPlayer" parent="AnimationsMain/sfx/big_bonks"]
+stream = ExtResource("22_vwkuo")
+
+[node name="GameOverScreen" type="PanelContainer" parent="."]
+visible = false
+z_index = 3
+offset_left = 384.0
+offset_top = 232.0
+offset_right = 896.0
+offset_bottom = 488.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+script = ExtResource("10_d850t")
+
+[node name="ColorRect" type="ColorRect" parent="GameOverScreen"]
+layout_mode = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.54902)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameOverScreen"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="GameOverScreen/VBoxContainer"]
+layout_mode = 2
+text = "Game Over"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelPoints" type="Label" parent="GameOverScreen/VBoxContainer"]
+layout_mode = 2
+text = "XXX Points"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelSurvived" type="Label" parent="GameOverScreen/VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "You Survived and are normal size forever again
+poggers!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GameOverScreen/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="RestartButton" type="Button" parent="GameOverScreen/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+disabled = true
+text = "Restart"
+
+[node name="MenuButton" type="Button" parent="GameOverScreen/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+disabled = true
+text = "Main Menu"
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("11_3cpbe")
+autoplay = true
+script = ExtResource("11_rmslk")

@@ -1,0 +1,86 @@
+[gd_scene load_steps=8 format=3 uid="uid://enpqo1lqecul"]
+
+[ext_resource type="Script" path="res://resources/animations/points_gained/ANIpoints_gained.gd" id="1_il54n"]
+[ext_resource type="AudioStream" uid="uid://c75yssw48wl36" path="res://resources/animations/points_gained/firework.mp3" id="2_3fbhy"]
+[ext_resource type="AudioStream" uid="uid://bv752d2eyqfc1" path="res://resources/animations/points_gained/points1.mp3" id="2_ssr7j"]
+[ext_resource type="AudioStream" uid="uid://b1354ckguno3f" path="res://resources/animations/points_gained/points2.mp3" id="3_df7s2"]
+[ext_resource type="AudioStream" uid="uid://1pq4t5qby5rj" path="res://resources/animations/points_gained/points3.mp3" id="4_dgn7d"]
+
+[sub_resource type="Curve" id="Curve_hobfi"]
+max_value = 20.0
+_data = [Vector2(0.0123457, 20), 0.0, 0.0, 0, 0, Vector2(0.901235, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_vx8n4"]
+offsets = PackedFloat32Array(0.183962, 0.825472)
+colors = PackedColorArray(0.654902, 0.243137, 0.172549, 1, 0.870588, 0.666667, 0.192157, 0.254902)
+
+[node name="ANIpoints_gained" type="Node2D"]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_il54n")
+
+[node name="firework_1" type="CPUParticles2D" parent="."]
+position = Vector2(20, 26)
+scale = Vector2(0.5, 0.5)
+emitting = false
+amount = 85
+one_shot = true
+explosiveness = 0.78
+randomness = 0.5
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 500.0
+initial_velocity_max = 500.0
+scale_amount_curve = SubResource("Curve_hobfi")
+color_ramp = SubResource("Gradient_vx8n4")
+
+[node name="firework_2" type="CPUParticles2D" parent="."]
+position = Vector2(-8, -48)
+scale = Vector2(0.5, 0.5)
+emitting = false
+amount = 85
+one_shot = true
+explosiveness = 0.78
+randomness = 0.5
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 500.0
+initial_velocity_max = 500.0
+scale_amount_curve = SubResource("Curve_hobfi")
+color_ramp = SubResource("Gradient_vx8n4")
+
+[node name="Label" type="RichTextLabel" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = -56.0
+offset_top = -96.0
+offset_right = 79.0
+offset_bottom = -2.0
+scale = Vector2(4, 4)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+bbcode_enabled = true
+text = "+5"
+fit_content = true
+
+[node name="sfx" type="Node2D" parent="."]
+
+[node name="points1" type="AudioStreamPlayer" parent="sfx"]
+stream = ExtResource("2_ssr7j")
+volume_db = -10.0
+
+[node name="points2" type="AudioStreamPlayer" parent="sfx"]
+stream = ExtResource("3_df7s2")
+volume_db = -10.0
+
+[node name="points3" type="AudioStreamPlayer" parent="sfx"]
+stream = ExtResource("4_dgn7d")
+volume_db = -10.0
+
+[node name="firework1" type="AudioStreamPlayer" parent="sfx"]
+stream = ExtResource("2_3fbhy")
+
+[node name="firework2" type="AudioStreamPlayer" parent="sfx"]
+stream = ExtResource("2_3fbhy")
+
+[node name="firework3" type="AudioStreamPlayer" parent="sfx"]
+stream = ExtResource("2_3fbhy")

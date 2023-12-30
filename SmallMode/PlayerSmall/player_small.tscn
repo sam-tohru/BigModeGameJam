@@ -1,10 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://q6apitgn1n8c"]
+[gd_scene load_steps=12 format=3 uid="uid://q6apitgn1n8c"]
 
 [ext_resource type="Script" path="res://SmallMode/PlayerSmall/player_small.gd" id="1_dwe60"]
 [ext_resource type="Script" path="res://addons/2d_essentials/movement/motion/godot_essentials_motion.gd" id="2_3amoy"]
 [ext_resource type="Texture2D" uid="uid://8iqgsv7vorxj" path="res://SmallMode/PlayerSmall/sprites/chibi_1.png" id="3_ud1e0"]
+[ext_resource type="SpriteFrames" uid="uid://mmmsvsimt3xn" path="res://SmallMode/PlayerSmall/sprites/player_small.tres" id="4_lx3nm"]
+[ext_resource type="Texture2D" uid="uid://rr3mhdtrpt34" path="res://SmallMode/PlayerSmall/sprites/NeedleBL.png" id="8_meogk"]
+[ext_resource type="Texture2D" uid="uid://io0s7slccgkt" path="res://SmallMode/PlayerSmall/sprites/NeedleBR.png" id="9_7cga5"]
+[ext_resource type="Texture2D" uid="uid://beyckiei5nvim" path="res://SmallMode/PlayerSmall/sprites/NeedleFL.png" id="10_yebkh"]
+[ext_resource type="Texture2D" uid="uid://b441gnj1tm0lm" path="res://SmallMode/PlayerSmall/sprites/NeedleFR.png" id="11_e6wa0"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_y551n"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fe63y"]
+radius = 11.0
+height = 36.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yr84x"]
 animations = [{
@@ -25,19 +32,60 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="PlayerSmall" type="CharacterBody2D"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_bgq8p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_meogk")
+}],
+"loop": true,
+"name": &"BackL",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_7cga5")
+}],
+"loop": true,
+"name": &"BackR",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_yebkh")
+}],
+"loop": true,
+"name": &"FrontL",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_e6wa0")
+}],
+"loop": true,
+"name": &"FrontR",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="PlayerSmall" type="CharacterBody2D" groups=["PlayerSmall"]]
 collision_layer = 2
 collision_mask = 34
 script = ExtResource("1_dwe60")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_y551n")
+position = Vector2(9, 15)
+shape = SubResource("CapsuleShape2D_fe63y")
 
 [node name="GodotEssentialsMotion" type="Node2D" parent="."]
 script = ExtResource("2_3amoy")
 MAX_SPEED = 350.0
-ACCELERATION = 900.0
-FRICTION = 900.0
+ACCELERATION = 1250.0
+FRICTION = 0.0
 
 [node name="Label" type="Label" parent="."]
 offset_left = -8.0
@@ -48,8 +96,22 @@ scale = Vector2(0.33, 0.33)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "player"
 
-[node name="SpriteGirlSmall" type="AnimatedSprite2D" parent="."]
+[node name="SpriteGirlSmallaa" type="AnimatedSprite2D" parent="."]
+visible = false
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_yr84x")
 animation = &"forward"
 autoplay = "forward"
+
+[node name="SpriteGirlSmall" type="Node2D" parent="."]
+scale = Vector2(0.3, 0.3)
+
+[node name="GirlSprite" type="AnimatedSprite2D" parent="SpriteGirlSmall"]
+sprite_frames = ExtResource("4_lx3nm")
+animation = &"FrontR"
+autoplay = "FrontR"
+
+[node name="NeedleSprite" type="AnimatedSprite2D" parent="SpriteGirlSmall"]
+sprite_frames = SubResource("SpriteFrames_bgq8p")
+animation = &"FrontR"
+autoplay = "FrontR"

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://6xmekjt54vj0"
+path="res://.godot/imported/balloon deflate 15.wav-482fc51afa9131676c806e5d9015febc.sample"
+
+[deps]
+
+source_file="res://resources/SFX/switch_ani/balloon deflate 15.wav"
+dest_files=["res://.godot/imported/balloon deflate 15.wav-482fc51afa9131676c806e5d9015febc.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

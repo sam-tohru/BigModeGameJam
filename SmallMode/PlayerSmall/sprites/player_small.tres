@@ -1,0 +1,46 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://mmmsvsimt3xn"]
+
+[ext_resource type="Texture2D" uid="uid://6o64nw6jr54i" path="res://SmallMode/PlayerSmall/sprites/chibiBackL.png" id="1_cgmot"]
+[ext_resource type="Texture2D" uid="uid://tgbrjy0cchsd" path="res://SmallMode/PlayerSmall/sprites/chibiBackR.png" id="2_gbf3a"]
+[ext_resource type="Texture2D" uid="uid://ccxc2fgmgrngh" path="res://SmallMode/PlayerSmall/sprites/chibiFrontL.png" id="3_eswix"]
+[ext_resource type="Texture2D" uid="uid://ci7fqna3l2a1i" path="res://SmallMode/PlayerSmall/sprites/chibiFrontR.png" id="4_jyfwc"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_cgmot")
+}],
+"loop": true,
+"name": &"BackL",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_gbf3a")
+}],
+"loop": true,
+"name": &"BackR",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_eswix")
+}],
+"loop": true,
+"name": &"FrontL",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_jyfwc")
+}],
+"loop": true,
+"name": &"FrontR",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

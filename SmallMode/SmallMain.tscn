@@ -1,31 +1,68 @@
-[gd_scene load_steps=8 format=3 uid="uid://7ge8r8t354k6"]
+[gd_scene load_steps=42 format=3 uid="uid://7ge8r8t354k6"]
 
 [ext_resource type="PackedScene" uid="uid://q6apitgn1n8c" path="res://SmallMode/PlayerSmall/player_small.tscn" id="1_vr8dc"]
 [ext_resource type="Script" path="res://SmallMode/SmallMain.gd" id="1_y3yk3"]
-[ext_resource type="PackedScene" uid="uid://b7mqh20b04map" path="res://SmallMode/Items/ItemSmall.tscn" id="2_owemc"]
+[ext_resource type="Texture2D" uid="uid://cagly03y4yjbi" path="res://SmallMode/BG/bg3.png" id="2_sln6o"]
 [ext_resource type="PackedScene" uid="uid://uf02273v1eqg" path="res://SmallMode/CaptureArea/Capture_Area.tscn" id="3_kk117"]
-[ext_resource type="Script" path="res://SmallMode/UI/LabelOrder.gd" id="5_t712h"]
+[ext_resource type="Script" path="res://SmallMode/UI/OrderUI.gd" id="4_wh0ie"]
+[ext_resource type="Texture2D" uid="uid://c1mgfr6bi1w2c" path="res://SmallMode/Items/sprites/small/cloth1-small.png" id="6_4hdn2"]
 [ext_resource type="PackedScene" uid="uid://b10dxhyg7f6jb" path="res://SmallMode/OrderSystem/OrderSystem.tscn" id="6_si4lw"]
+[ext_resource type="Texture2D" uid="uid://1a71ejl6dkmm" path="res://SmallMode/Items/sprites/small/button1-small.png" id="7_2rfe5"]
+[ext_resource type="Texture2D" uid="uid://bmib0n0yexnbu" path="res://resources/UI/threadUI.png" id="7_im800"]
+[ext_resource type="Script" path="res://SmallMode/Areas/RightRemoveArea.gd" id="7_mhpf1"]
+[ext_resource type="Script" path="res://SmallMode/Items/Spawner.gd" id="7_w45gc"]
+[ext_resource type="Script" path="res://SmallMode/UI/TopLeftPanel.gd" id="8_38xbg"]
+[ext_resource type="Script" path="res://SmallMode/Areas/LeftGetArea.gd" id="8_gv066"]
+[ext_resource type="Script" path="res://SmallMode/UI/MainButton.gd" id="9_invd1"]
+[ext_resource type="Script" path="res://SmallMode/UI/PointsLabel.gd" id="10_r7o8n"]
+[ext_resource type="Script" path="res://SmallMode/UI/WarningOrder.gd" id="12_2evtx"]
+[ext_resource type="Script" path="res://SmallMode/UI/WrongOrder.gd" id="13_j3bbh"]
+[ext_resource type="Script" path="res://SmallMode/UI/HowTo.gd" id="13_ysf3x"]
+[ext_resource type="Script" path="res://SmallMode/SFX/SFX.gd" id="14_e23ee"]
+[ext_resource type="Script" path="res://SmallMode/Areas/TopRSkipOrder.gd" id="15_37cd4"]
+[ext_resource type="Texture2D" uid="uid://biiig7gx7t1f2" path="res://resources/HowTo/good.png" id="15_m0lkt"]
+[ext_resource type="AudioStream" uid="uid://ccso80kosrb8c" path="res://SmallMode/SFX/pin_pierce1.mp3" id="15_vhjmw"]
+[ext_resource type="AudioStream" uid="uid://cchdkb571dydx" path="res://SmallMode/SFX/pin_pierce2.mp3" id="16_q70ff"]
+[ext_resource type="Texture2D" uid="uid://bc1fhmcenf64b" path="res://resources/HowTo/Screenshot 2023-12-16 161744.png" id="16_qg2hh"]
+[ext_resource type="AudioStream" uid="uid://ct3662gybca88" path="res://SmallMode/SFX/pin_pierce3.mp3" id="17_0tcnw"]
+[ext_resource type="AudioStream" uid="uid://c21g84kyh4x2k" path="res://SmallMode/SFX/sewing_encircle.mp3" id="18_xjlva"]
+[ext_resource type="AudioStream" uid="uid://bodeaccpgvkoo" path="res://SmallMode/SFX/walk/walk1.mp3" id="19_jubjy"]
+[ext_resource type="AudioStream" uid="uid://ebhlmc04e3vf" path="res://SmallMode/SFX/walk/walk2.mp3" id="20_ld1ah"]
+[ext_resource type="AudioStream" uid="uid://bdn2nig4ldx2e" path="res://SmallMode/SFX/walk/walk3.mp3" id="21_vnfoo"]
+[ext_resource type="AudioStream" uid="uid://blbbjykbu6v6v" path="res://SmallMode/SFX/walk/walk4.mp3" id="22_4en7d"]
+[ext_resource type="AudioStream" uid="uid://cyohyfwve2ql8" path="res://SmallMode/SFX/walk/walk5.mp3" id="23_48dvb"]
+[ext_resource type="Script" path="res://SmallMode/Animations_Small.gd" id="26_km2dv"]
+[ext_resource type="Script" path="res://SmallMode/FootStomping/FootStomping.gd" id="28_dqp84"]
+[ext_resource type="Texture2D" uid="uid://dvs1igapmfc8v" path="res://SmallMode/FootStomping/foot1.png" id="29_1n457"]
+[ext_resource type="AudioStream" uid="uid://d2gm05d62of8u" path="res://resources/SFX/foot_stomps/flip flop slap 5.wav" id="30_p0qbi"]
+[ext_resource type="AudioStream" uid="uid://b4qyovmci7ohl" path="res://resources/SFX/foot_stomps/flip flop slap 6.wav" id="31_yo5pa"]
+[ext_resource type="AudioStream" uid="uid://cyrjln1xdsxo2" path="res://resources/SFX/foot_stomps/flip flop slap 17.wav" id="32_i25rh"]
+[ext_resource type="AudioStream" uid="uid://cacbyqxoro5ow" path="res://resources/SFX/foot_stomps/flip flop slap 22.wav" id="33_5jodu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g0hh7"]
 size = Vector2(1176, 20)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qtnk5"]
+size = Vector2(203, 107)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ns03"]
+size = Vector2(115, 74.5)
+
 [node name="SmallMain" type="Node2D"]
+process_mode = 1
 script = ExtResource("1_y3yk3")
+
+[node name="RoundTimer" type="Timer" parent="."]
+wait_time = 30.0
+one_shot = true
+autostart = true
 
 [node name="Background" type="Node2D" parent="."]
 
-[node name="OuterRect" type="ColorRect" parent="Background"]
-offset_right = 1280.0
-offset_bottom = 720.0
-color = Color(0.168627, 0.156863, 0.129412, 1)
-
-[node name="InnerRect" type="ColorRect" parent="Background"]
-offset_left = 52.0
-offset_top = -37.0
-offset_right = 1228.0
-offset_bottom = 856.0
-color = Color(0.384314, 0.298039, 0.235294, 1)
+[node name="BG3" type="Sprite2D" parent="Background"]
+position = Vector2(637, 362)
+scale = Vector2(0.67, 0.67)
+texture = ExtResource("2_sln6o")
 
 [node name="PlayerWalls" type="Node2D" parent="Background"]
 
@@ -66,55 +103,26 @@ shape = SubResource("RectangleShape2D_g0hh7")
 [node name="MaterialGoToAreas" type="Node2D" parent="Background"]
 
 [node name="Marker2D" type="Marker2D" parent="Background/MaterialGoToAreas"]
-position = Vector2(271, 134)
+position = Vector2(308, 208)
 
 [node name="Marker2D2" type="Marker2D" parent="Background/MaterialGoToAreas"]
-position = Vector2(357, 374)
+position = Vector2(347, 482)
 
 [node name="Marker2D3" type="Marker2D" parent="Background/MaterialGoToAreas"]
-position = Vector2(675, 213)
+position = Vector2(632, 210)
 
 [node name="Marker2D4" type="Marker2D" parent="Background/MaterialGoToAreas"]
-position = Vector2(967, 397)
+position = Vector2(982, 465)
 
 [node name="Marker2D5" type="Marker2D" parent="Background/MaterialGoToAreas"]
-position = Vector2(677, 416)
+position = Vector2(674, 489)
 
 [node name="Marker2D6" type="Marker2D" parent="Background/MaterialGoToAreas"]
-position = Vector2(1069, 130)
-
-[node name="Marker2D7" type="Marker2D" parent="Background/MaterialGoToAreas"]
-position = Vector2(981, 565)
-
-[node name="Marker2D8" type="Marker2D" parent="Background/MaterialGoToAreas"]
-position = Vector2(264, 548)
-
-[node name="Marker2D9" type="Marker2D" parent="Background/MaterialGoToAreas"]
-position = Vector2(629, 577)
-
-[node name="Marker2D10" type="Marker2D" parent="Background/MaterialGoToAreas"]
-position = Vector2(521, 116)
-
-[node name="Marker2D11" type="Marker2D" parent="Background/MaterialGoToAreas"]
-position = Vector2(865, 125)
+position = Vector2(1000, 199)
 
 [node name="PlayerSmall" parent="." instance=ExtResource("1_vr8dc")]
 z_index = 1
-position = Vector2(686, 442)
-
-[node name="ItemSmall" parent="." instance=ExtResource("2_owemc")]
-position = Vector2(444, 389)
-item_type = "button"
-current_color = "blue"
-
-[node name="ItemSmall2" parent="." instance=ExtResource("2_owemc")]
-position = Vector2(344, 535)
-item_type = "fabric"
-current_color = "white"
-
-[node name="ItemSmall3" parent="." instance=ExtResource("2_owemc")]
-position = Vector2(681, 543)
-current_color = "red"
+position = Vector2(686, 267)
 
 [node name="Capture_Area" parent="." instance=ExtResource("3_kk117")]
 
@@ -125,19 +133,531 @@ offset_right = 1280.0
 offset_bottom = 720.0
 mouse_filter = 2
 
-[node name="LabelOrder" type="Label" parent="UI"]
+[node name="OrderUI" type="PanelContainer" parent="UI"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -596.0
-offset_top = 17.0
-offset_right = -34.0
-offset_bottom = 100.0
+offset_left = -433.0
+offset_bottom = 134.0
 grow_horizontal = 0
+pivot_offset = Vector2(428, 5)
+mouse_filter = 1
+script = ExtResource("4_wh0ie")
+
+[node name="ColorRect" type="ColorRect" parent="UI/OrderUI"]
+layout_mode = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.666667)
+
+[node name="OrderCC" type="CenterContainer" parent="UI/OrderUI"]
+layout_mode = 2
+
+[node name="VBox" type="VBoxContainer" parent="UI/OrderUI/OrderCC"]
+layout_mode = 2
+
+[node name="LabelOrder" type="Label" parent="UI/OrderUI/OrderCC/VBox"]
+layout_mode = 2
 text = "order"
 horizontal_alignment = 1
 vertical_alignment = 1
-script = ExtResource("5_t712h")
+
+[node name="OrderIcons" type="HBoxContainer" parent="UI/OrderUI/OrderCC/VBox"]
+layout_mode = 2
+alignment = 1
+
+[node name="Texture0" type="TextureRect" parent="UI/OrderUI/OrderCC/VBox/OrderIcons"]
+layout_mode = 2
+texture = ExtResource("6_4hdn2")
+
+[node name="LabelMid0" type="Label" parent="UI/OrderUI/OrderCC/VBox/OrderIcons"]
+layout_mode = 2
+text = "+"
+
+[node name="Texture1" type="TextureRect" parent="UI/OrderUI/OrderCC/VBox/OrderIcons"]
+layout_mode = 2
+texture = ExtResource("7_2rfe5")
+
+[node name="LabelMid1" type="Label" parent="UI/OrderUI/OrderCC/VBox/OrderIcons"]
+layout_mode = 2
+text = "+"
+
+[node name="Texture2" type="TextureRect" parent="UI/OrderUI/OrderCC/VBox/OrderIcons"]
+layout_mode = 2
+texture = ExtResource("6_4hdn2")
+
+[node name="LabelOrder2" type="Label" parent="UI/OrderUI/OrderCC/VBox"]
+layout_mode = 2
+text = "Only encircle order items, 
+only 1 item per image"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TopLeftPanel" type="PanelContainer" parent="UI"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 26.0
+offset_right = -859.0
+offset_bottom = 134.0
+grow_horizontal = 2
+mouse_filter = 1
+script = ExtResource("8_38xbg")
+
+[node name="ColorRect" type="ColorRect" parent="UI/TopLeftPanel"]
+layout_mode = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.666667)
+
+[node name="OrderCC" type="CenterContainer" parent="UI/TopLeftPanel"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/TopLeftPanel/OrderCC"]
+layout_mode = 2
+
+[node name="VBox" type="VBoxContainer" parent="UI/TopLeftPanel/OrderCC/HBoxContainer"]
+layout_mode = 2
+
+[node name="LabelOrder2" type="Label" parent="UI/TopLeftPanel/OrderCC/HBoxContainer/VBox"]
+layout_mode = 2
+text = "Move with 'wasd or arrows'"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelOrder" type="Label" parent="UI/TopLeftPanel/OrderCC/HBoxContainer/VBox"]
+layout_mode = 2
+text = "Hold 'Left Click or Space' to encircle items"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/TopLeftPanel/OrderCC/HBoxContainer/VBox"]
+layout_mode = 2
+alignment = 1
+
+[node name="MainButton" type="Button" parent="UI/TopLeftPanel/OrderCC/HBoxContainer/VBox/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.819608, 0, 1)
+text = "Main
+Menu"
+script = ExtResource("9_invd1")
+
+[node name="PointsLabel" type="Label" parent="UI/TopLeftPanel/OrderCC/HBoxContainer/VBox/HBoxContainer"]
+layout_mode = 2
+text = "0
+points
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("10_r7o8n")
+
+[node name="TextureRect" type="TextureRect" parent="UI/TopLeftPanel/OrderCC/HBoxContainer/VBox/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("7_im800")
+stretch_mode = 2
+
+[node name="thread_left" type="Label" parent="UI/TopLeftPanel/OrderCC/HBoxContainer/VBox/HBoxContainer/TextureRect"]
+layout_mode = 2
+offset_left = 68.0
+offset_top = 5.0
+offset_right = 492.0
+offset_bottom = 57.0
+text = "Thread"
+
+[node name="thread_left" type="Label" parent="UI/TopLeftPanel/OrderCC/HBoxContainer/VBox/HBoxContainer/TextureRect/thread_left"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 20.0
+offset_right = 434.0
+offset_bottom = 72.0
+text = "Left"
+
+[node name="ValueLeft" type="Label" parent="UI/TopLeftPanel/OrderCC/HBoxContainer/VBox/HBoxContainer/TextureRect/thread_left"]
+layout_mode = 0
+offset_left = 57.0
+offset_top = 34.0
+offset_right = 156.0
+offset_bottom = 86.0
+text = "here..."
+
+[node name="StompWarningOrder" type="Label" parent="UI"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 337.0
+offset_top = 73.0
+offset_right = 620.0
+offset_bottom = 111.0
+scale = Vector2(1.6, 1.6)
+theme_override_colors/font_color = Color(1, 0.819608, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+text = "Watch Out For 
+the Foot Stomps"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("12_2evtx")
+
+[node name="WrongOrder" type="Label" parent="UI"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 337.0
+offset_top = 73.0
+offset_right = 620.0
+offset_bottom = 111.0
+scale = Vector2(1.6, 1.6)
+theme_override_colors/font_color = Color(1, 0.819608, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+text = "Wrong Order!"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("13_j3bbh")
+
+[node name="IntroHowTo" type="PanelContainer" parent="UI"]
+layout_mode = 0
+offset_left = 456.0
+offset_top = 456.0
+offset_right = 839.0
+offset_bottom = 716.0
+script = ExtResource("13_ysf3x")
+
+[node name="ColorRect" type="ColorRect" parent="UI/IntroHowTo"]
+layout_mode = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.666667)
+
+[node name="HowTo" type="RichTextLabel" parent="UI/IntroHowTo"]
+layout_mode = 2
+theme_override_colors/default_color = Color(1, 0.819608, 0, 1)
+bbcode_enabled = true
+text = "[shake rate=4.0 level=5 connected=1]
+    Move with 'WASD' or 'Arrows'
+    Hold 'Left Click' or 'Space'
+    Encircle items, complete orders
+    only 1 item per order image
+
+    Make simple shapes when encircling
+    otherwise won't work
+    "
+
+[node name="Good" type="Sprite2D" parent="UI/IntroHowTo"]
+position = Vector2(296, 196)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("15_m0lkt")
+
+[node name="Screenshot2023-12-16161744" type="Sprite2D" parent="UI/IntroHowTo"]
+position = Vector2(155, 208)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("16_qg2hh")
+
+[node name="TextureRect" type="TextureRect" parent="UI/IntroHowTo"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("15_m0lkt")
+expand_mode = 3
+stretch_mode = 5
 
 [node name="OrderSystem" parent="." instance=ExtResource("6_si4lw")]
+
+[node name="Spawner" type="Node2D" parent="."]
+position = Vector2(-144, 381)
+script = ExtResource("7_w45gc")
+
+[node name="SpawnTimer" type="Timer" parent="Spawner"]
+wait_time = 9.0
+autostart = true
+
+[node name="Areas" type="Node2D" parent="."]
+
+[node name="RightRemoveArea" type="Area2D" parent="Areas"]
+position = Vector2(1010, 550)
+collision_layer = 32
+collision_mask = 2
+script = ExtResource("7_mhpf1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/RightRemoveArea"]
+visible = false
+position = Vector2(93, 60)
+shape = SubResource("RectangleShape2D_qtnk5")
+debug_color = Color(0.968627, 0.168627, 0.168627, 0.419608)
+
+[node name="ColorRect" type="ColorRect" parent="Areas/RightRemoveArea"]
+offset_left = -10.0
+offset_top = 5.0
+offset_right = 201.0
+offset_bottom = 119.0
+mouse_filter = 1
+color = Color(0.772549, 0.443137, 0, 0.537255)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Areas/RightRemoveArea"]
+offset_left = 26.0
+offset_top = 28.0
+offset_right = 175.0
+offset_bottom = 102.0
+scale = Vector2(1.4, 1.4)
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+text = "
+Remove Item"
+
+[node name="HowToLabel" type="Label" parent="Areas/RightRemoveArea"]
+visible = false
+offset_left = -9.0
+offset_top = 79.0
+offset_right = 200.0
+offset_bottom = 119.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Right Click (or 'V')"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LeftGetArea" type="Area2D" parent="Areas"]
+position = Vector2(80, 550)
+collision_layer = 32
+collision_mask = 2
+script = ExtResource("8_gv066")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/LeftGetArea"]
+visible = false
+position = Vector2(93, 60)
+shape = SubResource("RectangleShape2D_qtnk5")
+debug_color = Color(0.258824, 0.635294, 0, 0.419608)
+
+[node name="ColorRect" type="ColorRect" parent="Areas/LeftGetArea"]
+offset_left = -10.0
+offset_top = 5.0
+offset_right = 201.0
+offset_bottom = 119.0
+mouse_filter = 1
+color = Color(0.956863, 0, 0.533333, 0.537255)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Areas/LeftGetArea"]
+offset_left = 25.0
+offset_top = 28.0
+offset_right = 144.0
+offset_bottom = 101.0
+scale = Vector2(1.4, 1.4)
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+bbcode_enabled = true
+text = "
+Spawn Item"
+
+[node name="HowToLabel" type="Label" parent="Areas/LeftGetArea"]
+visible = false
+offset_left = -11.0
+offset_top = 79.0
+offset_right = 95.0
+offset_bottom = 119.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Right Click (or 'V')"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TopRSkipOrder" type="Area2D" parent="Areas"]
+position = Vector2(675, 10)
+collision_layer = 32
+collision_mask = 2
+script = ExtResource("15_37cd4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/TopRSkipOrder"]
+visible = false
+position = Vector2(96.5, 43.75)
+shape = SubResource("RectangleShape2D_4ns03")
+debug_color = Color(0.258824, 0.635294, 0, 0.419608)
+
+[node name="ColorRect" type="ColorRect" parent="Areas/TopRSkipOrder"]
+offset_left = 37.0
+offset_top = 4.0
+offset_right = 156.0
+offset_bottom = 84.0
+mouse_filter = 1
+color = Color(1, 0, 0, 0.537255)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Areas/TopRSkipOrder"]
+offset_left = 50.0
+offset_top = 38.0
+offset_right = 169.0
+offset_bottom = 111.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+text = "
+Skip Order"
+
+[node name="HowToLabel" type="Label" parent="Areas/TopRSkipOrder"]
+visible = false
+offset_left = 45.0
+offset_top = 4.0
+offset_right = 153.0
+offset_bottom = 44.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Right Click 
+(or 'V')"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SFX" type="Node2D" parent="."]
+script = ExtResource("14_e23ee")
+
+[node name="NeedlePlace1" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("15_vhjmw")
+volume_db = -20.0
+
+[node name="NeedlePlace2" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("16_q70ff")
+volume_db = -20.0
+
+[node name="NeedlePlace3" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("17_0tcnw")
+volume_db = -20.0
+
+[node name="Encircling" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("18_xjlva")
+
+[node name="Walks" type="Node2D" parent="SFX"]
+
+[node name="Walk1" type="AudioStreamPlayer" parent="SFX/Walks"]
+stream = ExtResource("19_jubjy")
+volume_db = -15.0
+
+[node name="Walk2" type="AudioStreamPlayer" parent="SFX/Walks"]
+stream = ExtResource("20_ld1ah")
+volume_db = -15.0
+
+[node name="Walk3" type="AudioStreamPlayer" parent="SFX/Walks"]
+stream = ExtResource("21_vnfoo")
+volume_db = -15.0
+
+[node name="Walk4" type="AudioStreamPlayer" parent="SFX/Walks"]
+stream = ExtResource("22_4en7d")
+volume_db = -15.0
+
+[node name="Walk5" type="AudioStreamPlayer" parent="SFX/Walks"]
+stream = ExtResource("23_48dvb")
+volume_db = -15.0
+
+[node name="Stomps" type="Node2D" parent="SFX"]
+
+[node name="Stomp1" type="AudioStreamPlayer" parent="SFX/Stomps"]
+stream = ExtResource("30_p0qbi")
+
+[node name="Stomp2" type="AudioStreamPlayer" parent="SFX/Stomps"]
+stream = ExtResource("31_yo5pa")
+
+[node name="Stomp3" type="AudioStreamPlayer" parent="SFX/Stomps"]
+stream = ExtResource("32_i25rh")
+
+[node name="Stomp4" type="AudioStreamPlayer" parent="SFX/Stomps"]
+stream = ExtResource("33_5jodu")
+
+[node name="Animations_Small" type="Node2D" parent="."]
+script = ExtResource("26_km2dv")
+
+[node name="FootStomping" type="Node2D" parent="."]
+script = ExtResource("28_dqp84")
+
+[node name="WhenTheyCome" type="Timer" parent="FootStomping"]
+wait_time = 7.0
+one_shot = true
+
+[node name="large" type="Area2D" parent="FootStomping"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(650, 341)
+scale = Vector2(2.5, 2.5)
+collision_layer = 0
+collision_mask = 2
+
+[node name="foot" type="Sprite2D" parent="FootStomping/large"]
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("29_1n457")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FootStomping/large"]
+scale = Vector2(1.1, 1.1)
+polygon = PackedVector2Array(82.3232, -22.7273, 92.4243, -14.1414, 100, 0.505051, 97.4748, 21.7172, 85.3535, 37.3737, 51.5152, 38.3838, -83.3333, 20.7071, -98.4848, 10.101, -97.9798, -13.1313, -79.798, -26.7677, -25.2525, -29.2929, 39.899, -30.8081)
+
+[node name="small_topL" type="Area2D" parent="FootStomping"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(418, 253)
+scale = Vector2(1.8, 1.8)
+collision_layer = 0
+collision_mask = 2
+
+[node name="foot" type="Sprite2D" parent="FootStomping/small_topL"]
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("29_1n457")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FootStomping/small_topL"]
+scale = Vector2(1.1, 1.1)
+polygon = PackedVector2Array(82.3232, -22.7273, 92.4243, -14.1414, 100, 0.505051, 97.4748, 21.7172, 85.3535, 37.3737, 51.5152, 38.3838, -83.3333, 20.7071, -98.4848, 10.101, -97.9798, -13.1313, -79.798, -26.7677, -25.2525, -29.2929, 39.899, -30.8081)
+
+[node name="small_topR" type="Area2D" parent="FootStomping"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(876, 253)
+scale = Vector2(1.8, 1.8)
+collision_layer = 0
+collision_mask = 2
+
+[node name="foot" type="Sprite2D" parent="FootStomping/small_topR"]
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("29_1n457")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FootStomping/small_topR"]
+scale = Vector2(1.1, 1.1)
+polygon = PackedVector2Array(82.3232, -22.7273, 92.4243, -14.1414, 100, 0.505051, 97.4748, 21.7172, 85.3535, 37.3737, 51.5152, 38.3838, -83.3333, 20.7071, -98.4848, 10.101, -97.9798, -13.1313, -79.798, -26.7677, -25.2525, -29.2929, 39.899, -30.8081)
+
+[node name="small_botR" type="Area2D" parent="FootStomping"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(877, 446)
+scale = Vector2(1.8, 1.8)
+collision_layer = 0
+collision_mask = 2
+
+[node name="foot" type="Sprite2D" parent="FootStomping/small_botR"]
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("29_1n457")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FootStomping/small_botR"]
+scale = Vector2(1.1, 1.1)
+polygon = PackedVector2Array(82.3232, -22.7273, 92.4243, -14.1414, 100, 0.505051, 97.4748, 21.7172, 85.3535, 37.3737, 51.5152, 38.3838, -83.3333, 20.7071, -98.4848, 10.101, -97.9798, -13.1313, -79.798, -26.7677, -25.2525, -29.2929, 39.899, -30.8081)
+
+[node name="small_botL" type="Area2D" parent="FootStomping"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(425, 444)
+scale = Vector2(1.8, 1.8)
+collision_layer = 0
+collision_mask = 2
+
+[node name="foot" type="Sprite2D" parent="FootStomping/small_botL"]
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("29_1n457")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FootStomping/small_botL"]
+scale = Vector2(1.1, 1.1)
+polygon = PackedVector2Array(82.3232, -22.7273, 92.4243, -14.1414, 100, 0.505051, 97.4748, 21.7172, 85.3535, 37.3737, 51.5152, 38.3838, -83.3333, 20.7071, -98.4848, 10.101, -97.9798, -13.1313, -79.798, -26.7677, -25.2525, -29.2929, 39.899, -30.8081)
+
+[connection signal="SFX_place" from="." to="SFX" method="_on_small_main_sfx_place"]
+[connection signal="SFX_stomp" from="." to="SFX" method="_on_small_main_sfx_stomp"]
+[connection signal="SFX_walk" from="." to="SFX" method="_on_small_main_sfx_walk"]
+[connection signal="small_incorrect_order" from="." to="UI/WrongOrder" method="_on_small_main_small_incorrect_order"]
+[connection signal="small_incorrect_order" from="." to="Animations_Small" method="_on_small_main_small_incorrect_order"]
+[connection signal="squashed_player" from="." to="PlayerSmall" method="_on_small_main_squashed_player"]
+[connection signal="updated_order" from="." to="Animations_Small" method="_on_small_main_updated_order"]
+[connection signal="timeout" from="RoundTimer" to="." method="_on_round_timer_timeout"]
+[connection signal="timeout" from="Spawner/SpawnTimer" to="Spawner" method="_on_spawn_timer_timeout"]
+[connection signal="body_entered" from="Areas/RightRemoveArea" to="Areas/RightRemoveArea" method="_on_body_entered"]
+[connection signal="body_exited" from="Areas/RightRemoveArea" to="Areas/RightRemoveArea" method="_on_body_exited"]
+[connection signal="mouse_entered" from="Areas/RightRemoveArea/ColorRect" to="Areas/RightRemoveArea" method="_on_color_rect_mouse_entered"]
+[connection signal="mouse_exited" from="Areas/RightRemoveArea/ColorRect" to="Areas/RightRemoveArea" method="_on_color_rect_mouse_exited"]
+[connection signal="body_entered" from="Areas/LeftGetArea" to="Areas/LeftGetArea" method="_on_body_entered"]
+[connection signal="body_exited" from="Areas/LeftGetArea" to="Areas/LeftGetArea" method="_on_body_exited"]
+[connection signal="mouse_entered" from="Areas/LeftGetArea/ColorRect" to="Areas/LeftGetArea" method="_on_color_rect_mouse_entered"]
+[connection signal="mouse_exited" from="Areas/LeftGetArea/ColorRect" to="Areas/LeftGetArea" method="_on_color_rect_mouse_exited"]
+[connection signal="body_entered" from="Areas/TopRSkipOrder" to="Areas/TopRSkipOrder" method="_on_body_entered"]
+[connection signal="body_exited" from="Areas/TopRSkipOrder" to="Areas/TopRSkipOrder" method="_on_body_exited"]
+[connection signal="mouse_entered" from="Areas/TopRSkipOrder/ColorRect" to="Areas/TopRSkipOrder" method="_on_color_rect_mouse_entered"]
+[connection signal="mouse_exited" from="Areas/TopRSkipOrder/ColorRect" to="Areas/TopRSkipOrder" method="_on_color_rect_mouse_exited"]
+[connection signal="timeout" from="FootStomping/WhenTheyCome" to="FootStomping" method="_on_when_they_come_timeout"]

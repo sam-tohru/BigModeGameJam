@@ -1,0 +1,319 @@
+[gd_scene load_steps=21 format=3 uid="uid://ch5vw5ioo43to"]
+
+[ext_resource type="Script" path="res://BigMode/BigMain.gd" id="1_agwrd"]
+[ext_resource type="PackedScene" uid="uid://cbvvicscx6ups" path="res://BigMode/PlayerBig/PlayerBig.tscn" id="1_pijoj"]
+[ext_resource type="Texture2D" uid="uid://jaxexeo5lod4" path="res://BigMode/background/bg2-1.png" id="2_7b21d"]
+[ext_resource type="Script" path="res://BigMode/background/bgSprites.gd" id="2_c247r"]
+[ext_resource type="Script" path="res://BigMode/OrdersBig.gd" id="2_h3xw1"]
+[ext_resource type="Texture2D" uid="uid://dbjhgou6kyfoa" path="res://BigMode/background/bg2-2_1neutral.png" id="3_cevrc"]
+[ext_resource type="Texture2D" uid="uid://bmib0n0yexnbu" path="res://resources/UI/threadUI.png" id="3_gpwl2"]
+[ext_resource type="Texture2D" uid="uid://b85sog666lmkp" path="res://BigMode/background/bg2-2_2sad.png" id="4_6x70v"]
+[ext_resource type="Script" path="res://BigMode/UI/UI.gd" id="4_8a4by"]
+[ext_resource type="Script" path="res://SmallMode/UI/TopLeftPanel.gd" id="5_s8brb"]
+[ext_resource type="Texture2D" uid="uid://q7ew3et3gubo" path="res://BigMode/background/bg2-2_3happy.png" id="5_sc8wu"]
+[ext_resource type="Texture2D" uid="uid://cqc75vdne05pg" path="res://BigMode/background/bg2-4.png" id="6_isxu0"]
+[ext_resource type="Script" path="res://SmallMode/UI/MainButton.gd" id="6_s26d8"]
+[ext_resource type="Script" path="res://SmallMode/UI/PointsLabel.gd" id="7_agnt0"]
+[ext_resource type="Texture2D" uid="uid://cajg8puu1ommr" path="res://BigMode/background/bg2-5_1sad.png" id="7_xny5r"]
+[ext_resource type="Texture2D" uid="uid://cvxuq6thsd2bh" path="res://BigMode/background/bg2-5_2neutral.png" id="8_jx264"]
+[ext_resource type="Texture2D" uid="uid://bsmipsu861gc" path="res://BigMode/background/bg2-5_3happy.png" id="9_1tkxo"]
+[ext_resource type="Script" path="res://SmallMode/UI/HowTo.gd" id="9_n12t5"]
+[ext_resource type="Script" path="res://BigMode/FirstOrder.gd" id="14_m2o4s"]
+[ext_resource type="Texture2D" uid="uid://bvmfyqhtdftq6" path="res://SmallMode/Items/sprites/info_box.png" id="15_01deu"]
+
+[node name="BigMain" type="Node2D"]
+z_index = -1
+script = ExtResource("1_agwrd")
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="OuterRect" type="ColorRect" parent="Background"]
+offset_left = -1272.0
+offset_top = -874.0
+offset_right = 2552.0
+offset_bottom = 1594.0
+mouse_filter = 2
+color = Color(0.168627, 0.156863, 0.129412, 1)
+
+[node name="InnerRect" type="ColorRect" parent="Background"]
+offset_left = -88.0
+offset_top = 258.0
+offset_right = 1324.0
+offset_bottom = 489.0
+mouse_filter = 2
+color = Color(0.384314, 0.298039, 0.235294, 1)
+
+[node name="MaterialGoToAreas" type="Node2D" parent="Background"]
+
+[node name="Marker2D" type="Marker2D" parent="Background/MaterialGoToAreas"]
+position = Vector2(308, 208)
+
+[node name="Marker2D2" type="Marker2D" parent="Background/MaterialGoToAreas"]
+position = Vector2(347, 482)
+
+[node name="Marker2D3" type="Marker2D" parent="Background/MaterialGoToAreas"]
+position = Vector2(632, 210)
+
+[node name="Marker2D4" type="Marker2D" parent="Background/MaterialGoToAreas"]
+position = Vector2(982, 465)
+
+[node name="Marker2D5" type="Marker2D" parent="Background/MaterialGoToAreas"]
+position = Vector2(674, 489)
+
+[node name="Marker2D6" type="Marker2D" parent="Background/MaterialGoToAreas"]
+position = Vector2(1000, 199)
+
+[node name="bgSprites" type="Node2D" parent="Background"]
+script = ExtResource("2_c247r")
+
+[node name="Bg2-1" type="Sprite2D" parent="Background/bgSprites"]
+position = Vector2(653, 227)
+texture = ExtResource("2_7b21d")
+
+[node name="Bg2-21Neutral" type="Sprite2D" parent="Background/bgSprites"]
+position = Vector2(860, 267)
+texture = ExtResource("3_cevrc")
+flip_h = true
+
+[node name="Bg2-22Sad" type="Sprite2D" parent="Background/bgSprites"]
+visible = false
+position = Vector2(583, 240)
+texture = ExtResource("4_6x70v")
+flip_h = true
+
+[node name="Bg2-23Happy" type="Sprite2D" parent="Background/bgSprites"]
+visible = false
+position = Vector2(583, 240)
+texture = ExtResource("5_sc8wu")
+flip_h = true
+
+[node name="Bg2-4" type="Sprite2D" parent="Background/bgSprites"]
+position = Vector2(583, 240)
+texture = ExtResource("6_isxu0")
+
+[node name="Bg2-51Sad" type="Sprite2D" parent="Background/bgSprites"]
+visible = false
+position = Vector2(585, 275)
+texture = ExtResource("7_xny5r")
+
+[node name="Bg2-52Neutral" type="Sprite2D" parent="Background/bgSprites"]
+position = Vector2(587, 298)
+texture = ExtResource("8_jx264")
+
+[node name="Bg2-53Happy" type="Sprite2D" parent="Background/bgSprites"]
+visible = false
+position = Vector2(585, 275)
+texture = ExtResource("9_1tkxo")
+
+[node name="OrdersBig" type="Node" parent="."]
+script = ExtResource("2_h3xw1")
+
+[node name="timers" type="Node" parent="."]
+
+[node name="SwitchTimer" type="Timer" parent="timers"]
+wait_time = 0.15
+one_shot = true
+
+[node name="SwitchTimerGetInput" type="Timer" parent="timers"]
+wait_time = 0.05
+one_shot = true
+
+[node name="OrderTimer" type="Timer" parent="timers"]
+wait_time = 4.0
+autostart = true
+
+[node name="RoundTimer" type="Timer" parent="timers"]
+wait_time = 20.0
+one_shot = true
+
+[node name="PlayerBig" parent="." instance=ExtResource("1_pijoj")]
+position = Vector2(647, 246)
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+mouse_filter = 2
+script = ExtResource("4_8a4by")
+
+[node name="OrderUI" type="PanelContainer" parent="UI"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -859.0
+offset_right = -314.0
+offset_bottom = 63.0
+grow_horizontal = 0
+mouse_filter = 1
+
+[node name="ColorRect" type="ColorRect" parent="UI/OrderUI"]
+layout_mode = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.666667)
+
+[node name="FirstOrder" type="Node2D" parent="UI/OrderUI"]
+position = Vector2(327, 161)
+script = ExtResource("14_m2o4s")
+
+[node name="InfoBox" type="Sprite2D" parent="UI/OrderUI/FirstOrder"]
+position = Vector2(90, -51)
+scale = Vector2(1, 1.1875)
+texture = ExtResource("15_01deu")
+flip_v = true
+
+[node name="Label" type="Label" parent="UI/OrderUI/FirstOrder"]
+offset_left = 9.0
+offset_top = -71.0
+offset_right = 178.0
+offset_bottom = 24.0
+scale = Vector2(0.75, 0.75)
+theme_override_colors/font_color = Color(1, 0.819608, 0, 1)
+theme_override_constants/line_spacing = -1
+text = "Pose via
+'WASD' or
+'Arrows'"
+horizontal_alignment = 1
+
+[node name="OrderCC" type="CenterContainer" parent="UI/OrderUI"]
+layout_mode = 2
+
+[node name="VBox" type="VBoxContainer" parent="UI/OrderUI/OrderCC"]
+layout_mode = 2
+
+[node name="CrowdLabel" type="Label" parent="UI/OrderUI/OrderCC/VBox"]
+custom_minimum_size = Vector2(160, 20)
+layout_mode = 2
+text = "
+The Crowd Wants:"
+
+[node name="ToDoLabel" type="Label" parent="UI/OrderUI/OrderCC/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Left, Right"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DoneLabel" type="Label" parent="UI/OrderUI/OrderCC/VBox"]
+visible = false
+layout_mode = 2
+text = "You're Doing: "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TopLeftPanel" type="PanelContainer" parent="UI"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 26.0
+offset_right = -859.0
+offset_bottom = 134.0
+grow_horizontal = 2
+mouse_filter = 1
+script = ExtResource("5_s8brb")
+
+[node name="ColorRect" type="ColorRect" parent="UI/TopLeftPanel"]
+layout_mode = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.666667)
+
+[node name="OrderCC" type="CenterContainer" parent="UI/TopLeftPanel"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/TopLeftPanel/OrderCC"]
+layout_mode = 2
+
+[node name="VBox" type="VBoxContainer" parent="UI/TopLeftPanel/OrderCC/HBoxContainer"]
+layout_mode = 2
+
+[node name="LabelOrder" type="Label" parent="UI/TopLeftPanel/OrderCC/HBoxContainer/VBox"]
+layout_mode = 2
+text = "Do Poses with 
+W (up), A (left), S (down), D (right)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/TopLeftPanel/OrderCC/HBoxContainer/VBox"]
+layout_mode = 2
+alignment = 1
+
+[node name="MainButton" type="Button" parent="UI/TopLeftPanel/OrderCC/HBoxContainer/VBox/HBoxContainer"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.819608, 0, 1)
+text = "Main
+Menu"
+script = ExtResource("6_s26d8")
+
+[node name="PointsLabel" type="Label" parent="UI/TopLeftPanel/OrderCC/HBoxContainer/VBox/HBoxContainer"]
+layout_mode = 2
+text = "0
+points
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("7_agnt0")
+
+[node name="TextureRect" type="TextureRect" parent="UI/TopLeftPanel/OrderCC/HBoxContainer/VBox/HBoxContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("3_gpwl2")
+stretch_mode = 2
+
+[node name="thread_left" type="Label" parent="UI/TopLeftPanel/OrderCC/HBoxContainer/VBox/HBoxContainer/TextureRect"]
+visible = false
+layout_mode = 2
+offset_left = 68.0
+offset_top = 5.0
+offset_right = 492.0
+offset_bottom = 57.0
+text = "Thread"
+
+[node name="thread_left" type="Label" parent="UI/TopLeftPanel/OrderCC/HBoxContainer/VBox/HBoxContainer/TextureRect/thread_left"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 20.0
+offset_right = 434.0
+offset_bottom = 72.0
+text = "Left"
+
+[node name="ValueLeft" type="Label" parent="UI/TopLeftPanel/OrderCC/HBoxContainer/VBox/HBoxContainer/TextureRect/thread_left"]
+layout_mode = 0
+offset_left = 57.0
+offset_top = 34.0
+offset_right = 156.0
+offset_bottom = 86.0
+text = "here..."
+
+[node name="ani_points_gained" type="Node2D" parent="."]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="ani_points_gained"]
+
+[node name="IntroHowTo" type="PanelContainer" parent="."]
+offset_left = 491.0
+offset_top = 496.0
+offset_right = 801.0
+offset_bottom = 649.0
+script = ExtResource("9_n12t5")
+
+[node name="ColorRect" type="ColorRect" parent="IntroHowTo"]
+layout_mode = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.666667)
+
+[node name="HowTo" type="RichTextLabel" parent="IntroHowTo"]
+layout_mode = 2
+theme_override_colors/default_color = Color(1, 0.819608, 0, 1)
+bbcode_enabled = true
+text = "[shake rate=4.0 level=5 connected=1]
+    The Crowd wants certain poses
+    Pose with 'WASD' or 'Arrows'
+    You can just spam if you want
+"
+
+[connection signal="update_order_ui" from="." to="UI" method="_on_big_main_update_order_ui"]
+[connection signal="timeout" from="timers/SwitchTimer" to="." method="_on_switch_timer_timeout"]
+[connection signal="timeout" from="timers/SwitchTimerGetInput" to="." method="_on_switch_timer_get_input_timeout"]
+[connection signal="timeout" from="timers/OrderTimer" to="." method="_on_order_timer_timeout"]
+[connection signal="timeout" from="timers/RoundTimer" to="." method="_on_round_timer_timeout"]

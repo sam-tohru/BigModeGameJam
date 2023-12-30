@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://brqqx2qyalngn"
+path="res://.godot/imported/clothes ruffle 2.wav-4e1834d0cb8484082da97633dc9bc91d.sample"
+
+[deps]
+
+source_file="res://resources/SFX/switch_ani/clothes ruffle 2.wav"
+dest_files=["res://.godot/imported/clothes ruffle 2.wav-4e1834d0cb8484082da97633dc9bc91d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,0 +1,50 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://d4h7jc5kdynux"]
+
+[ext_resource type="Texture2D" uid="uid://bxyepuacm8fkp" path="res://BigMode/PlayerBig/sprites/pose1_3-A.png" id="1_tl1fj"]
+[ext_resource type="Texture2D" uid="uid://c5oosclmrpdew" path="res://BigMode/PlayerBig/sprites/pose1_1-D.png" id="2_juj13"]
+[ext_resource type="Texture2D" uid="uid://h64ukp6l3tdk" path="res://BigMode/PlayerBig/sprites/pose1_2-S.png" id="3_den4w"]
+[ext_resource type="Texture2D" uid="uid://cy8ie0tr4pyyq" path="res://BigMode/PlayerBig/sprites/pose1_4-W.png" id="4_7aqbe"]
+[ext_resource type="Texture2D" uid="uid://du3xgh6asfvaj" path="res://BigMode/PlayerBig/sprites/big_1neutral.png" id="5_2m2vu"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_tl1fj")
+}],
+"loop": true,
+"name": &"A",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_juj13")
+}],
+"loop": true,
+"name": &"D",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_den4w")
+}],
+"loop": true,
+"name": &"S",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_7aqbe")
+}],
+"loop": true,
+"name": &"W",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_2m2vu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

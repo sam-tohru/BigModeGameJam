@@ -1,0 +1,151 @@
+[gd_scene load_steps=9 format=3 uid="uid://7ge8r8t354k6"]
+
+[ext_resource type="PackedScene" uid="uid://q6apitgn1n8c" path="res://SmallMode/PlayerSmall/player_small.tscn" id="1_vr8dc"]
+[ext_resource type="Script" path="res://SmallMode/SmallMain.gd" id="1_y3yk3"]
+[ext_resource type="PackedScene" uid="uid://b7mqh20b04map" path="res://SmallMode/Items/ItemSmall.tscn" id="2_owemc"]
+[ext_resource type="PackedScene" uid="uid://uf02273v1eqg" path="res://SmallMode/CaptureArea/Capture_Area.tscn" id="3_kk117"]
+[ext_resource type="Script" path="res://SmallMode/UI/LabelOrder.gd" id="5_t712h"]
+[ext_resource type="PackedScene" uid="uid://b10dxhyg7f6jb" path="res://SmallMode/OrderSystem/OrderSystem.tscn" id="6_si4lw"]
+[ext_resource type="Script" path="res://SmallMode/Items/Spawner.gd" id="7_w45gc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g0hh7"]
+size = Vector2(1176, 20)
+
+[node name="SmallMain" type="Node2D"]
+process_mode = 1
+script = ExtResource("1_y3yk3")
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="OuterRect" type="ColorRect" parent="Background"]
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0.168627, 0.156863, 0.129412, 1)
+
+[node name="InnerRect" type="ColorRect" parent="Background"]
+offset_left = 52.0
+offset_top = -37.0
+offset_right = 1228.0
+offset_bottom = 856.0
+color = Color(0.384314, 0.298039, 0.235294, 1)
+
+[node name="PlayerWalls" type="Node2D" parent="Background"]
+
+[node name="WallLeft" type="StaticBody2D" parent="Background/PlayerWalls"]
+position = Vector2(42, 410)
+collision_layer = 32
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/PlayerWalls/WallLeft"]
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_g0hh7")
+
+[node name="WallRight" type="StaticBody2D" parent="Background/PlayerWalls"]
+position = Vector2(1238, 410)
+collision_layer = 32
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/PlayerWalls/WallRight"]
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_g0hh7")
+
+[node name="WallTop" type="StaticBody2D" parent="Background/PlayerWalls"]
+position = Vector2(640, 0)
+collision_layer = 32
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/PlayerWalls/WallTop"]
+shape = SubResource("RectangleShape2D_g0hh7")
+
+[node name="WallBot" type="StaticBody2D" parent="Background/PlayerWalls"]
+position = Vector2(640, 707)
+collision_layer = 32
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/PlayerWalls/WallBot"]
+shape = SubResource("RectangleShape2D_g0hh7")
+
+[node name="MaterialGoToAreas" type="Node2D" parent="Background"]
+
+[node name="Marker2D" type="Marker2D" parent="Background/MaterialGoToAreas"]
+position = Vector2(271, 134)
+
+[node name="Marker2D2" type="Marker2D" parent="Background/MaterialGoToAreas"]
+position = Vector2(357, 374)
+
+[node name="Marker2D3" type="Marker2D" parent="Background/MaterialGoToAreas"]
+position = Vector2(675, 213)
+
+[node name="Marker2D4" type="Marker2D" parent="Background/MaterialGoToAreas"]
+position = Vector2(967, 397)
+
+[node name="Marker2D5" type="Marker2D" parent="Background/MaterialGoToAreas"]
+position = Vector2(677, 416)
+
+[node name="Marker2D6" type="Marker2D" parent="Background/MaterialGoToAreas"]
+position = Vector2(1069, 130)
+
+[node name="Marker2D7" type="Marker2D" parent="Background/MaterialGoToAreas"]
+position = Vector2(981, 565)
+
+[node name="Marker2D8" type="Marker2D" parent="Background/MaterialGoToAreas"]
+position = Vector2(264, 548)
+
+[node name="Marker2D9" type="Marker2D" parent="Background/MaterialGoToAreas"]
+position = Vector2(629, 577)
+
+[node name="Marker2D10" type="Marker2D" parent="Background/MaterialGoToAreas"]
+position = Vector2(521, 116)
+
+[node name="Marker2D11" type="Marker2D" parent="Background/MaterialGoToAreas"]
+position = Vector2(865, 125)
+
+[node name="PlayerSmall" parent="." instance=ExtResource("1_vr8dc")]
+z_index = 1
+position = Vector2(686, 442)
+
+[node name="Capture_Area" parent="." instance=ExtResource("3_kk117")]
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+mouse_filter = 2
+
+[node name="LabelOrder" type="Label" parent="UI"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -596.0
+offset_top = 17.0
+offset_right = -34.0
+offset_bottom = 100.0
+grow_horizontal = 0
+text = "order"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("5_t712h")
+
+[node name="OrderSystem" parent="." instance=ExtResource("6_si4lw")]
+
+[node name="Spawner" type="Node2D" parent="."]
+position = Vector2(303, 359)
+script = ExtResource("7_w45gc")
+
+[node name="ItemSmall" parent="Spawner" instance=ExtResource("2_owemc")]
+position = Vector2(513, 1)
+item_type = "button"
+current_color = "blue"
+max_idle_ticks = 8
+
+[node name="ItemSmall2" parent="Spawner" instance=ExtResource("2_owemc")]
+position = Vector2(413, 147)
+item_type = "fabric"
+current_color = "white"
+max_idle_ticks = 6
+
+[node name="ItemSmall3" parent="Spawner" instance=ExtResource("2_owemc")]
+position = Vector2(750, 155)
+current_color = "red"

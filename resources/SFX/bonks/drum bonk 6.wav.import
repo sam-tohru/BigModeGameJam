@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cvx2qnrlyk8m2"
+path="res://.godot/imported/drum bonk 6.wav-56e2af25fd7bf71af1f4da46b3e5f9a2.sample"
+
+[deps]
+
+source_file="res://resources/SFX/bonks/drum bonk 6.wav"
+dest_files=["res://.godot/imported/drum bonk 6.wav-56e2af25fd7bf71af1f4da46b3e5f9a2.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

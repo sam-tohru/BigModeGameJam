@@ -20,7 +20,9 @@ extends ColorRect
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	resume_button.pressed.connect(unpause) # resumes the game
-	quit_button.pressed.connect(get_tree().quit) # quit the game
+	quit_button.pressed.connect(globals.emit_signal.bind('restart_game')) # quit the game
+	
+	globals.main_button_pressed.connect(pause)
 	
 	pause() # initially needs to pause when start game
 
@@ -77,11 +79,11 @@ func _on_settings_button_pressed():
 	else: settings.settings_menu(true)
 
 func _on_save_button_pressed():
-	if load_save.is_visible_in_tree() and ls_label.text == 'Save': load_save.load_save_menu(false, 'Save')
-	else: load_save.load_save_menu(true, 'Save') 
+	if load_save.is_visible_in_tree() and ls_label.text == 'How To Play': load_save.load_save_menu(false, 'How To Play')
+	else: load_save.load_save_menu(true, 'How To Play') 
 
 func _on_load_button_pressed():
-	if load_save.is_visible_in_tree() and ls_label.text == 'Load': load_save.load_save_menu(false, 'Load')
-	else: load_save.load_save_menu(true, 'Load')
+	if load_save.is_visible_in_tree() and ls_label.text == 'Credits': load_save.load_save_menu(false, 'Credits')
+	else: load_save.load_save_menu(true, 'Credits')
 
 

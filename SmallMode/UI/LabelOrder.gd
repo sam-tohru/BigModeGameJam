@@ -10,6 +10,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+	if globvars.MODE != 'small': return
 
 
 
@@ -17,5 +18,5 @@ func updated_order(new_order: Array):
 	print(new_order)
 	if new_order.size() > 2: printerr('label updated order only does 2 arrays, change this')
 	
-	self.text = str('Order: ', new_order[0], ' & ', new_order[1])
+	self.text = str('Order ', parent.orders_done, ': ', new_order[0], ' & ', new_order[1])
 	

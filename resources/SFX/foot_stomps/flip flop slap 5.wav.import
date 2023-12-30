@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://d2gm05d62of8u"
+path="res://.godot/imported/flip flop slap 5.wav-38bac996d280ee778e7f7bc761cc6860.sample"
+
+[deps]
+
+source_file="res://resources/SFX/foot_stomps/flip flop slap 5.wav"
+dest_files=["res://.godot/imported/flip flop slap 5.wav-38bac996d280ee778e7f7bc761cc6860.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

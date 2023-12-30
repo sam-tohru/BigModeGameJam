@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bq2q5jhohfo74"
+path="res://.godot/imported/body hit with grunt 3.wav-2e3d111468b88347ae90289d84313eef.sample"
+
+[deps]
+
+source_file="res://SmallMode/SFX/grunt/body hit with grunt 3.wav"
+dest_files=["res://.godot/imported/body hit with grunt 3.wav-2e3d111468b88347ae90289d84313eef.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

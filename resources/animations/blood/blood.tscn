@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://ci5bsrq28almy"]
+
+[ext_resource type="Texture2D" uid="uid://dhsn37rnp1p22" path="res://resources/animations/blood/circle-export.png" id="1_411pk"]
+[ext_resource type="Script" path="res://resources/animations/blood/blood.gd" id="2_wo2cn"]
+
+[node name="blood" type="CPUParticles2D"]
+process_mode = 3
+scale = Vector2(2, 2)
+amount = 32
+lifetime = 0.15
+explosiveness = 1.0
+texture = ExtResource("1_411pk")
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 20.0
+initial_velocity_max = 60.0
+scale_amount_min = 0.15
+scale_amount_max = 0.2
+color = Color(0.705882, 0.12549, 0.164706, 0.666667)
+script = ExtResource("2_wo2cn")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.12
+one_shot = true
+autostart = true
+
+[node name="RemoveTimer" type="Timer" parent="."]
+wait_time = 3.2
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="RemoveTimer" to="." method="_on_remove_timer_timeout"]

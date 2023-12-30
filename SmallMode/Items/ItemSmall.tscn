@@ -1,14 +1,29 @@
-[gd_scene load_steps=6 format=3 uid="uid://b7mqh20b04map"]
+[gd_scene load_steps=12 format=3 uid="uid://b7mqh20b04map"]
 
 [ext_resource type="Script" path="res://SmallMode/Items/ItemSmall.gd" id="1_f1aku"]
-[ext_resource type="Texture2D" uid="uid://j77qdyq56yg4" path="res://SmallMode/Items/sprites/button.png" id="2_flvj1"]
-[ext_resource type="Texture2D" uid="uid://d3rj6l110dpc8" path="res://SmallMode/Items/sprites/fabric.png" id="3_hrkr5"]
+[ext_resource type="Texture2D" uid="uid://c7qc6o07c8an3" path="res://SmallMode/Items/sprites/button1.png" id="2_f16lr"]
+[ext_resource type="Texture2D" uid="uid://cu5wvi1km5lnn" path="res://SmallMode/Items/sprites/button2.png" id="3_dighj"]
+[ext_resource type="Texture2D" uid="uid://xiap3ew8f7vh" path="res://SmallMode/Items/sprites/button3.png" id="4_nu3r3"]
+[ext_resource type="Texture2D" uid="uid://odbo4p36h21t" path="res://SmallMode/Items/sprites/cloth1.png" id="5_g7knm"]
+[ext_resource type="Texture2D" uid="uid://dlwdl4fb1r7k6" path="res://SmallMode/Items/sprites/cloth2.png" id="6_7mmjw"]
+[ext_resource type="Texture2D" uid="uid://c55jrb1fuu1kk" path="res://SmallMode/Items/sprites/cloth3.png" id="7_761lp"]
+[ext_resource type="Texture2D" uid="uid://bvmfyqhtdftq6" path="res://SmallMode/Items/sprites/info_box.png" id="8_0x2ow"]
+[ext_resource type="Script" path="res://SmallMode/Items/FirstOrder.gd" id="8_1c7dg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7dioe"]
+radius = 29.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1upbb"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_flvj1")
+"texture": ExtResource("2_f16lr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_dighj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_nu3r3")
 }],
 "loop": true,
 "name": &"button",
@@ -21,20 +36,26 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_hrkr5")
+"texture": ExtResource("5_g7knm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_7mmjw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_761lp")
 }],
 "loop": true,
 "name": &"fabric",
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_7dioe"]
-radius = 29.0
-
 [node name="ItemSmall" type="Area2D"]
 collision_layer = 4
 collision_mask = 64
 script = ExtResource("1_f1aku")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_7dioe")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
@@ -44,9 +65,29 @@ offset_right = 13.0
 offset_bottom = 13.0
 
 [node name="MainSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_1upbb")
 animation = &"fabric"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2, 3)
-shape = SubResource("CircleShape2D_7dioe")
+[node name="FirstOrder" type="Node2D" parent="."]
+position = Vector2(-7, -5)
+script = ExtResource("8_1c7dg")
+
+[node name="InfoBox" type="Sprite2D" parent="FirstOrder"]
+position = Vector2(90, -51)
+scale = Vector2(1, 1.1875)
+texture = ExtResource("8_0x2ow")
+
+[node name="Label" type="Label" parent="FirstOrder"]
+offset_left = 9.0
+offset_top = -71.0
+offset_right = 178.0
+offset_bottom = 24.0
+scale = Vector2(0.75, 0.75)
+theme_override_colors/font_color = Color(1, 0.819608, 0, 1)
+theme_override_constants/line_spacing = -1
+text = "Encircle by
+
+'Left click' 
+or 'Space'"
+horizontal_alignment = 1

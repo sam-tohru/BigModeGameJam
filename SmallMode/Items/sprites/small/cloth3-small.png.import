@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dijd7tcxb0a1s"
-path="res://.godot/imported/circle-export.png-9126bf8fb7dfc4431fbffc759728e018.ctex"
+uid="uid://dtx3aebm0gbu6"
+path="res://.godot/imported/cloth3-small.png-1cf5791b14e5ee73d3f82b9885ff705f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://SmallMode/PlayerSmall/circle-export.png"
-dest_files=["res://.godot/imported/circle-export.png-9126bf8fb7dfc4431fbffc759728e018.ctex"]
+source_file="res://SmallMode/Items/sprites/small/cloth3-small.png"
+dest_files=["res://.godot/imported/cloth3-small.png-1cf5791b14e5ee73d3f82b9885ff705f.ctex"]
 
 [params]
 
